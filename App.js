@@ -1,3 +1,5 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
 // JavaScript Code
 const heading = document.createElement("h1");
 heading.textContent = "Hello World from JavaScript";

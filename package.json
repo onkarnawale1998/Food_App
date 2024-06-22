@@ -1,0 +1,27 @@
+{
+  "name": "food_app",
+  "version": "1.0.0",
+  "description": "Swiggy like food delivery app.",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onkarnawale1998/Food_App.git"
+  },
+  "author": "Onkar Nawale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onkarnawale1998/Food_App/issues"
+  },
+  "homepage": "https://github.com/onkarnawale1998/Food_App#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
