@@ -1,13 +1,7 @@
-// JavaScript Code
-const heading = document.createElement("h1");
-heading.textContent = "Hello World from JavaScript";
-document.querySelector(".hello").appendChild(heading);
+import React from "react";
+import { createRoot } from "react-dom/client";
 
-// React Code
-const heading1 = React.createElement(
-  "h1",
-  { id: "title" },
-  "Hello World from React"
-); // heading1 is a react element/object not actual h1 element
-const root = ReactDOM.createRoot(document.querySelector("#root"));
-root.render(heading1);
+const App = () => <h1>Hello this basic react template made with parcel ❤️🚀 </h1>;
+
+const root = createRoot(document.getElementById("root"));
+root.render(<App />);
