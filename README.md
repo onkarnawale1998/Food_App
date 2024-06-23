@@ -17,7 +17,7 @@ A brief description of your project.
 ## Usage
 
 1. Start the development server: `npm start`
-2. Open your browser and visit `http://localhost:3000`
+2. Open your browser and visit `http://localhost:1234`
 
 ## Contributing
 
