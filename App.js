@@ -5,5 +5,6 @@ const App = () => (
   <h1>Hello this basic react template made with parcel ❤️🚀 </h1>
 );
 
-const root = createRoot(document.getElementById("root"));
+const domNode = document.getElementById("root");
+const root = createRoot(domNode);
 root.render(<App />);
