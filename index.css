@@ -1,15 +1,57 @@
-.hello {
-  color: red;
+* {
+  box-sizing: border-box;
 }
 
-#title {
-  color: red;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px black;
 }
 
-#child1 {
-  color: blue;
+.logo {
+  width: 150px;
+  height: 100px;
 }
 
-#child2 {
-  color: green;
+.nav-items>ul {
+  display: flex;
+  align-items: center;
+}
+
+.nav-items>ul>li {
+  list-style: none;
+  padding: 10px;
+}
+
+.nav-items {
+  padding-right: 20px;
+  font-size: 20px;
+}
+.res-card {
+  background-color: #f0f0f0;
+  width: 200px;
+  padding: 5px;
+  margin: 5px;
+  object-fit: cover;
+}
+.res-card:hover{
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.search {
+  padding: 10px;
+}
+
+.res-img {
+  width: 190px;
+  height: 200px;
+  padding: 5px;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
 }
