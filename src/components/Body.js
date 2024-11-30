@@ -1,17 +1,29 @@
-import { useState } from "react";
-import resList from "../utils/mockData";
+import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 
 const Body = () => {
-    const [resListState, setResListState] = useState(resList);
+    const [resListState, setResListState] = useState([]);
+    const [originalList, setOriginalList] = useState([]);
     const [isFiltered, setIsFiltered] = useState(false);
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    const fetchData = async () => {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204&lng=73.8567&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        const json = await data.json();
+        const fetchedData = json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+        setOriginalList(fetchedData);
+        setResListState(fetchedData);
+    }
 
     const handleFilter = () => {
         if (isFiltered) {
-            setResListState(resList);
+            setResListState(originalList);
             setIsFiltered(false);
         } else {
-            const filteredResList = resList.filter((res) => res.info.avgRatingString > 4);
+            const filteredResList = originalList.filter((res) => res.info.avgRatingString > 4);
             setResListState(filteredResList);
             setIsFiltered(true);
         }
