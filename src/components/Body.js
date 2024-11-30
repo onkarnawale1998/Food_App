@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
     const [resListState, setResListState] = useState([]);
@@ -28,7 +29,7 @@ const Body = () => {
             setIsFiltered(true);
         }
     };
-
+    if (resListState.length === 0) return <Shimmer />
     return (
         <div className="body">
             <div className="filter">
