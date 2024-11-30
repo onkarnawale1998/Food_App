@@ -29,8 +29,7 @@ const Body = () => {
             setIsFiltered(true);
         }
     };
-    if (resListState.length === 0) return <Shimmer />
-    return (
+    return resListState.length === 0 ? <Shimmer /> : (
         <div className="body">
             <div className="filter">
                 <button className="filter-btn" onClick={handleFilter}>Top Rated Restaurants</button>
