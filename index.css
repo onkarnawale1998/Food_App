@@ -83,3 +83,6 @@
 .login-btn {
   cursor: pointer;
 }
+.filter {
+  display: flex;
+}

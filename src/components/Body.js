@@ -8,6 +8,7 @@ const Body = () => {
     const [originalList, setOriginalList] = useState([]);
     const [isFiltered, setIsFiltered] = useState(false);
     const [buttonName, SetButtonName] = useState("Top Rated Restaurants");
+    const [searchTxt, setSearchTxt] = useState("");
 
     useEffect(() => {
         fetchData();
@@ -16,7 +17,7 @@ const Body = () => {
     const fetchData = async () => {
         const data = await fetch(SWIGGY_API)
         const json = await data.json();
-        const fetchedData = json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+        const fetchedData = json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
         setOriginalList(fetchedData);
         setResListState(fetchedData);
     }
@@ -27,7 +28,7 @@ const Body = () => {
             setIsFiltered(false);
             SetButtonName("Top Rated Restaurants");
         } else {
-            const filteredResList = originalList.filter((res) => res.info.avgRatingString >= 4);
+            const filteredResList = resListState.filter((res) => res.info.avgRating >= 4.1);
             setResListState(filteredResList);
             setIsFiltered(true);
             SetButtonName("All Restaurants");
@@ -36,6 +37,13 @@ const Body = () => {
     return resListState.length === 0 ? <Shimmer /> : (
         <div className="body">
             <div className="filter">
+                <div className="search">
+                    <input type="text" onChange={(e) => setSearchTxt(e.target.value)} value={searchTxt} />
+                    <button className="search-btn" onClick={() => {
+                        const filteredRestaurants = resListState.filter((res) => res?.info?.name.toLowerCase()?.includes(searchTxt.toLowerCase()));
+                        setResListState(filteredRestaurants);
+                    }}>Search</button>
+                </div>
                 <button className="filter-btn" onClick={handleFilter}>{buttonName}</button>
             </div>
             <div className="res-container">
