@@ -36,7 +36,7 @@ const Body = () => {
             setIsFiltered(false);
             SetButtonName("Top Rated Restaurants");
         } else {
-            const filteredResList = resListState.filter((res) => res.info.avgRating >= 4.2);
+            const filteredResList = originalList.filter((res) => res.info.avgRating >= 4.2);
             setResListState(filteredResList);
             setIsFiltered(true);
             SetButtonName("All Restaurants");
